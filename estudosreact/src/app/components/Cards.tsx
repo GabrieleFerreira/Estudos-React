@@ -5,29 +5,30 @@ interface CardsProps {
   src: string
   alt: string
   href: string
-  width: number
-  height: number
+  hrefDoc: string
   message: string
 }
 export default function Cards({
   alt,
   href,
   src,
-  height,
-  width,
   message,
+  hrefDoc,
 }: CardsProps) {
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact w-80 bg-base-100 shadow-xl h-auto">
       <figure>
-        <Image src={src} alt={alt} width={width} height={height} />
+        <Image src={src} alt={alt} width={350} height={350} />
       </figure>
-      <div className="card-body">
+      <div className="card-body bg-blue-100">
         <h2 className="card-title">Conceito</h2>
-        <p>{message}</p>
-        <div className="card-actions justify-end">
+        <p className="font-semibold text-sm">{message}</p>
+        <div className="card-actions flex gap1[">
           <Link href={href} className="btn btn-primary">
             Ver Exemplo
+          </Link>
+          <Link href={hrefDoc} className="btn btn-primary">
+            Ver Documentação
           </Link>
         </div>
       </div>
