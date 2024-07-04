@@ -1,42 +1,101 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 
-export default function UseEffectExample() {
-  const [count, setCount] = useState(0)
-  const [increment, setIncrement] = useState(false)
-  const [decrement, setDecrement] = useState(false)
+const AnimatedCountdown = () => {
+  const [initialCount, setInitialCount] = useState(10)
+  const [countdown, setCountdown] = useState(initialCount)
+  const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
-    if (increment) {
-      setCount(count + 1)
-      setIncrement(false) // Reset increment state
+    let intervalId: any
+
+    if (isActive && countdown > 0) {
+      intervalId = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1)
+      }, 1000)
+    } else if (countdown === 0) {
+      clearInterval(intervalId)
+      alert('Tempo esgotado!')
+      setIsActive(false)
     }
-    if (decrement) {
-      setCount(count - 1)
-      setDecrement(false) // Reset decrement state
-    }
-  }, [increment, decrement])
+
+    return () => clearInterval(intervalId)
+  }, [isActive, countdown])
+
+  const handleStart = () => {
+    setIsActive(true)
+  }
+
+  const handlePause = () => {
+    setIsActive(false)
+  }
+
+  const handleReset = () => {
+    setCountdown(initialCount)
+    setIsActive(false)
+  }
+
+  const handleInputChange = (e: any) => {
+    const { value } = e.target
+    setInitialCount(Number(value))
+    setCountdown(Number(value))
+    setIsActive(false)
+  }
 
   return (
-    <div className="flex w-full h-screen justify-center items-center flex-col text-2xl font-bold gap-3 bg-slate-200">
-      <h2>useEffect Example</h2>
-      <p>Contador: {count}</p>
-      <div className="flex gap-5">
-        <button
-          onClick={() => setDecrement(true)}
-          className="bg-red-200 rounded-md w-10
-           h-10"
+    <div className="bg-custom-exemp bg-custom-bg bg-cover bg-center items-center">
+      <div className="flex flex-col items-center justify-center h-screen">
+        <h1 className="text-3xl font-bold mb-4 text-black ml-96 -mt-16">
+          Animated Countdown
+        </h1>
+        <div className="mb-4 ml-96 mt-4">
+          <input
+            type="number"
+            value={initialCount}
+            onChange={handleInputChange}
+            placeholder="Enter countdown value"
+            className="border border-gray-300 rounded py-2 px-4 text-lg text-center"
+            style={{ width: '12rem' }}
+          />
+        </div>
+        <div
+          className={`text-5xl font-bold text-black ml-96 ${
+            countdown === 0 ? 'text-red-500 animate-pulse' : ''
+          }`}
         >
-          -
-        </button>
-        <button
-          onClick={() => setIncrement(true)}
-          className="bg-green-200 rounded-md w-10
-           h-10"
-        >
-          +
-        </button>
+          {countdown}
+        </div>
+        <div className="flex gap-4 mt-4 ml-96">
+          <button
+            onClick={handleStart}
+            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+              isActive ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={isActive}
+          >
+            Iniciar
+          </button>
+          <button
+            onClick={handlePause}
+            className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+              !isActive ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={!isActive}
+          >
+            Pausar
+          </button>
+          <button
+            onClick={handleReset}
+            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            disabled={isActive}
+          >
+            Reiniciar
+          </button>
+        </div>
       </div>
     </div>
   )
 }
+
+export default AnimatedCountdown

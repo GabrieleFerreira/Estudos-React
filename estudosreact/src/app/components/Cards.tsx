@@ -20,14 +20,14 @@ export default function Cards({
       <figure>
         <Image src={src} alt={alt} width={350} height={350} />
       </figure>
-      <div className="card-body bg-blue-100">
+      <div className="card-body bg-blue-200">
         <h2 className="card-title">Conceito</h2>
         <p className="font-semibold text-sm">{message}</p>
-        <div className="card-actions flex gap1[">
-          <Link href={href} className="btn btn-primary">
+        <div className="card-actions flex gap-1">
+          <Link href={href} className="btn btn-primary hover:bg-blue-800">
             Ver Exemplo
           </Link>
-          <Link href={hrefDoc} className="btn btn-primary">
+          <Link href={hrefDoc} className="btn btn-primary hover:bg-blue-800">
             Ver Documentação
           </Link>
         </div>
