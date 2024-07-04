@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-custom {
+  @apply bg-custom-bg bg-cover bg-center;
+}
