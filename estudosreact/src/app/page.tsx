@@ -24,6 +24,15 @@ export default function Home() {
             href="http://localhost:3000/exemUseEffect"
             message="O Effect Hook (Hook de Efeito) te permite executar efeitos colaterais em componentes funcionais.Usando esse Hook, você diz ao React que o componente precisa fazer algo apenas depois da renderização. O React ira se lembrar da função que você passou (nos referiremos a ele como nosso “efeito”), e chamá-la depois que realizar as atualizações do DOM."
           />
+          <Cards
+            src="/useref.png"
+            alt="imagem use Ref"
+            hrefDoc="https://legacy.reactjs.org/docs/hooks-reference.html#useref"
+            href="http://localhost:3000/exemUseRef"
+            message="Essencialmente, useRef é como uma “caixa” que pode conter um valor mutável em sua .currentpropriedade.
+
+Você pode estar familiarizado com refs principalmente como uma forma de acessar o DOM . Se você passar um objeto ref para React com <div ref={myRef} />, o React definirá sua .currentpropriedade para o nó DOM correspondente sempre que esse nó mudar."
+          />
         </div>
       </div>
     </>

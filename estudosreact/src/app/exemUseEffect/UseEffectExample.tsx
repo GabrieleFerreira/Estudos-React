@@ -44,12 +44,12 @@ const AnimatedCountdown = () => {
   }
 
   return (
-    <div className="bg-custom-exemp bg-custom-bg bg-cover bg-center items-center">
+    <div className="bg-custom-exemp bg-cover">
       <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-3xl font-bold mb-4 text-black ml-96 -mt-16">
-          Animated Countdown
+        <h1 className="text-5xl font-bold mb-4 text-white -mt-16">
+          Contagem regressiva
         </h1>
-        <div className="mb-4 ml-96 mt-4">
+        <div className="mb-4 mt-6">
           <input
             type="number"
             value={initialCount}
@@ -60,13 +60,13 @@ const AnimatedCountdown = () => {
           />
         </div>
         <div
-          className={`text-5xl font-bold text-black ml-96 ${
+          className={`text-5xl font-bold text-white ${
             countdown === 0 ? 'text-red-500 animate-pulse' : ''
           }`}
         >
           {countdown}
         </div>
-        <div className="flex gap-4 mt-4 ml-96">
+        <div className="flex gap-4 text-white mt-6">
           <button
             onClick={handleStart}
             className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
