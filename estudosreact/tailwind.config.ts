@@ -13,7 +13,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'custom-bg': "url('/react.jpeg')",
-        'custom-exemp': "url('/ensinando.png')",
+        'custom-exemp': "url('/quadros.png')",
       },
     },
   },
