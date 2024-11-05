@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-const AnimatedCountdown = () => {
+export default function AnimatedCountdown() {
   const [initialCount, setInitialCount] = useState(10)
   const [countdown, setCountdown] = useState(initialCount)
   const [isActive, setIsActive] = useState(false)
@@ -44,8 +44,8 @@ const AnimatedCountdown = () => {
   }
 
   return (
-    <div className="bg-custom-exemp bg-cover">
-      <div className="flex flex-col items-center justify-center h-screen">
+    <div className="bg-blue-800 flex w-screen h-screen justify-center items-center">
+      <div className="flex flex-col items-center justify-center h-[80%] bg-gray-700 w-[80%] xl:w-[60%]">
         <h1 className="text-5xl font-bold mb-4 text-white -mt-16">
           Contagem regressiva
         </h1>
@@ -97,5 +97,3 @@ const AnimatedCountdown = () => {
     </div>
   )
 }
-
-export default AnimatedCountdown
