@@ -6,7 +6,7 @@ export default function Home() {
     { name: 'useState', path: '/exemUseState' },
     { name: 'useEffect', path: '/exemUseEffect' },
     { name: 'useReducer', path: '/exemUseReducer' },
-    { name: 'useReducer', path: '/hooks/usereducer' },
+    { name: 'UseImperativeHandle', path: '/exemUseImperativeHandle' },
   ]
 
   return (

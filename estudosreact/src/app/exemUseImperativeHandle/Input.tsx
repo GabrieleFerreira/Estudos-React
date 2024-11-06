@@ -15,7 +15,7 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     <div className="flex flex-col">
       <label
         htmlFor={name}
-        className="flex flex-col justify-center items-center"
+        className="flex flex-col justify-center items-center text-white"
       >
         {label}
         <input {...rest} ref={ref} />

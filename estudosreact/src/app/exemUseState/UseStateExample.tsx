@@ -1,26 +1,32 @@
 'use client'
 import { useState } from 'react'
 
-export default function UseStateExample() {
+export default function StateCounter() {
   const [count, setCount] = useState(0)
-  const incremento = () => {
-    setCount(count + 1)
-  }
-  const decremento = () => {
-    setCount(count - 1)
-  }
 
   return (
-    <div className="bg-custom-exemp bg-cover bg-center items-center text-center flex-col h-full w-full">
-      <div className="flex-col text-[40px]  flex h-full w-full gap-4 font-bold justify-center items-center  pb-32  overflow-hidden">
-        <h2 className="text-white">Exemplo do Use State</h2>
-        <p className="text-white mt-5">Contador: {count}</p>
-        <div className="flex gap-5 mt-4">
-          <button onClick={decremento} className="bg-red-300 rounded-md w-20">
-            -
+    <div className="flex w-full h-screen bg-blue-800 justify-center items-center">
+      <div className="flex flex-col items-center p-5 bg-gray-600 rounded-lg shadow-lg h-1/2  w-1/2 justify-center">
+        <div className="flex flex-col text-white">
+          <h1 className="text-2xl font-bold mb-4 text-center">
+            Exemplo de Use State
+          </h1>
+
+          <h1 className="text-2xl font-bold mb-4 text-center"> Contador</h1>
+        </div>
+        <div className="text-3xl font-semibold text-white">{count}</div>
+        <div className="gap-5 flex">
+          <button
+            className="mt-4 btn btn-primary bg-red-500 hover:bg-red-700 font-semibold text-white"
+            onClick={() => setCount(count - 1)}
+          >
+            Decrementar
           </button>
-          <button onClick={incremento} className="bg-green-400 rounded-md w-20">
-            +
+          <button
+            className="mt-4 btn btn-primary bg-green-500  hover:bg-green-600 text-sm text-white "
+            onClick={() => setCount(count + 1)}
+          >
+            Incrementar
           </button>
         </div>
       </div>
